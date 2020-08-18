@@ -118,3 +118,4 @@ settings*
 testenv/
 test3/
 .vscode/
+.db

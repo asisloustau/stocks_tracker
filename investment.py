@@ -19,7 +19,7 @@ class Investment(Ticker):
             - date: date of investment -datetime for now, will be input in MM-DD-YYYY
         """
 
-        self.ticker = ticker
+        super().__init__(ticker)  # inherit __init__ from Ticker
 
         self.amount = amount
 
@@ -27,8 +27,6 @@ class Investment(Ticker):
             self.date = date
         else:
             self.date = datetime.strptime(date, "%m-%d-%Y")
-
-        super().__init__(self.ticker)  # inherit __init__ from Ticker
 
         # Get stock data from yfinance for dates starting the investment date
         self.data = self.history(start=self.date.strftime("%Y-%m-%d"))
